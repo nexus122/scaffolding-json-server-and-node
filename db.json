@@ -1,82 +1,129 @@
 {
-    "peliculas": [
-      {
-        "id": 1,
-        "nombre": "El sexto sentido",
-        "director": "M. Night Shyamalan",
-        "clasificacion": "Drama"
-      },
-      {
-        "id": 2,
-        "nombre": "Pulp Fiction",
-        "director": "Tarantino",
-        "clasificacion": "Acción"
-      },
-      {
-        "id": 3,
-        "nombre": "Todo Sobre Mi Madre",
-        "director": "Almodobar",
-        "clasificacion": "Drama"
-      },
-      {
-        "id": 4,
-        "nombre": "300",
-        "director": "Zack Snyder",
-        "clasificacion": "Acción"
-      },
-      {
-        "id": 5,
-        "nombre": "El silencio de los corderos",
-        "director": "Jonathan Demme",
-        "clasificacion": "Drama"
-      },
-      {
-        "id": 6,
-        "nombre": "Forrest Gump",
-        "director": "Robert Zemeckis",
-        "clasificacion": "Comedia"
-      },
-      {
-        "id": 7,
-        "nombre": "Las Hurdes",
-        "director": "Luis Buñuel",
-        "clasificacion": "Documental"
-      },
-      {
-        "id": 111,
-        "nombre": "El sexto sentido",
-        "director": "M. Night Shyamalan",
-        "clasificacion": "Drama"
-      },
-      {
-        "nombre": "El sexto sentido",
-        "director": "M. Night Shyamalan",
-        "clasificacion": "Drama",
-        "id": 112
-      },
-      {
-        "nombre": "El sexto sentido",
-        "director": "M. Night Shyamalan",
-        "clasificacion": "Drama",
-        "id": 113
-      }
-    ],
-    "clasificaciones": [
-      {
-        "nombre": "Drama",
-        "id": 1
-      },
-      {
-        "nombre": "Comedia",
-        "id": 2
-      },
-      {
-        "nombre": "Documental",
-        "id": 3
-      },
-      {
-        "nombre": "Acción",
-        "id": 4
-      }
-    ]
-  }
+  "spaceShips": [
+    {
+      "id": 1,
+      "es_name": "Halcón Milenario",
+      "en_name": "Millennium Falcon",
+      "es_manufacturer": "Corporación Corelliana de Ingeniería",
+      "en_manufacturer": "Corellian Engineering Corporation",
+      "es_model": "Carguero ligero YT-1300f/YT-1300p",
+      "en_model": "Light freighter YT-1300f/YT-1300p",
+      "es_type": "Carguero ligero",
+      "en_type": "Light freighter",
+      "img": "/assets/ships/Halcon-Milenario.jpg"
+    },
+    {
+      "id": 2,
+      "es_name": "Cazador de Cabezas Z-95",
+      "en_name": "Headhunter Z-95",
+      "es_manufacturer": "Corporación Incom",
+      "en_manufacturer": "Incom Corporation",
+      "es_model": "Cazador de Cabezas Z-95",
+      "en_model": "Headhunter Z-95",
+      "es_type": "Star hunting",
+      "en_type": "Caza estelar",
+      "img": "/assets/ships/caza_cabezas.jpg"
+    },
+    {
+      "es_name": "Caza TIE",
+      "en_name": "Caza TIE",
+      "es_manufacturer": "Sistemas de Flota Sienar",
+      "en_manufacturer": "Sienar Fleet Systems",
+      "es_model": "Caza estelar Motor de Iones Gemelos/LN",
+      "en_model": "Starfighter Twin Ion Engine/LN",
+      "es_type": "Caza",
+      "en_type": "Starfighter",
+      "img": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2021/04/cazas-tie-star-wars-2299707.jpg?itok=gb68lsMb",
+      "id": 3
+    }
+  ],
+  "planets": [
+    {
+      "id": 1,
+      "name": "Coruscant",
+      "suns": "Corcuscant Prime",
+      "coords": "L-9",
+      "es_type": "Terrestre",
+      "en_type": "Terrestrial",
+      "es_atmosphere": "Respirable",
+      "en_atmosphere": "Breathable",
+      "es_weather": "Templado",
+      "en_weather": "Tempering",
+      "es_gravity": "Estandar",
+      "en_gravity": "Standard",
+      "img": "/assets/planets/Coruscant.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Tatooine",
+      "suns": "Tatto 1 & Tatto 2",
+      "coords": "X-3",
+      "es_type": "Desertico",
+      "en_type": "Desertic",
+      "es_atmosphere": "Respirable",
+      "en_atmosphere": "Breathable",
+      "es_weather": "Calido",
+      "en_weather": "Warm",
+      "es_gravity": "Estandar",
+      "en_gravity": "Standard",
+      "img": "/assets/planets/Tatooine.jpg"
+    },
+    {
+      "name": "Manolo",
+      "suns": "Manolo Prime",
+      "coords": "M-axolo-2",
+      "es_type": "Oceanico",
+      "en_type": "Oceanic",
+      "es_atmosphere": "Respirable",
+      "en_atmosphere": "Breathable",
+      "es_weather": "Terrible",
+      "en_weather": "Terrible",
+      "es_gravity": "Estandar",
+      "en_gravity": "Standard",
+      "img": "https://static.nationalgeographic.es/files/styles/image_3200/public/940.jpg?w=1900&h=1427",
+      "id": 3
+    }
+  ],
+  "smugglers": [
+    {
+      "id": 1,
+      "name": "Han Solo",
+      "home_planet": "Cornelia",
+      "specie": "Humano",
+      "genre": 0,
+      "img": "/assets/smugglers/Han_Solo.jpg",
+      "spaceship": 1,
+      "planet": 2
+    },
+    {
+      "id": 2,
+      "name": "Mara Jade",
+      "home_planet": "Coruscant",
+      "specie": "Humano",
+      "genre": 1,
+      "img": "/assets/smugglers/Mara_Jade_Sable.jpg",
+      "spaceship": 2,
+      "planet": 1
+    },
+    {
+      "id": 3,
+      "name": "Chewbacca",
+      "home_planet": "Kashyyyk",
+      "specie": "Wookiee",
+      "genre": 0,
+      "img": "/assets/smugglers/Cheewaca.jpg",
+      "spaceship": 1,
+      "planet": 1
+    },
+    {
+      "name": "R2D2",
+      "home_planet": "Tattoine",
+      "img": "http://localhost:3201/public/1659551491308.jpg",
+      "specie": "Humano",
+      "genre": "0",
+      "spaceship": "1",
+      "planet": "2",
+      "id": 4
+    }
+  ]
+}

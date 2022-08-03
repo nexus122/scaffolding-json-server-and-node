@@ -1,51 +1,53 @@
-const path = require('path');
-const jsonServer = require('json-server');
-const { ServerResponse } = require('http');
-const server = jsonServer.create();
-const router = jsonServer.router(path.join(__dirname,'db.json'));
+const path = require("path");
+const jsonServer = require("json-server");
+const cors = require("cors");
+const multer = require("multer");
+const express = require("express");
+
+//const server = jsonServer.create();
+const app = express();
+
+const router = jsonServer.router(path.join(__dirname, "db.json"));
 const middlewares = jsonServer.defaults();
+const port = process.env.PORT || 3201;
 
-server.use(
-    jsonServer.rewriter({
-        '/api/*': '/$1'
-    })
-)
+const urlSave = "./public";
 
-server.use(middlewares);
+app.use(cors());
 
-server.use(jsonServer.bodyParser);
 
-/* Metodo Get en el json server */
-server.get('/echo',(req,res)=>{
-    console.log('Get Server is running');
-    res.json('Hello World!');
+
+app.use(middlewares);
+app.use(jsonServer.bodyParser);
+
+/* Manipular archivos */
+const storage = multer.diskStorage({
+  // Manipulamos los objetos para cambiar su nombre y decir donde los guardamos
+  filename: function (res, file, cb) {
+    const ext = file.originalname.split(".").pop();
+    const filename = Date.now();
+    cb(null, `${filename}.${ext}`);
+  },
+  destination: function (res, file, cb) {
+    cb(null, urlSave);
+  },
 });
 
-server.use('/pension-plan/deduct',(req,res,next)=>{
-    console.log('Post Server is running')
-    if(req.method === 'POST'){
-        const companyPensionPlan = req.query.companyPensionPlan;
-        const personPensionPlan = req.query.personPensionPlan;
-        const taxeBase = req.query.taxeBase;
-        console.log(companyPensionPlan, personPensionPlan, taxeBase);
+const upload = multer({ storage }); // Configuramos una variable donde guardamos el multer
 
-        if(parseInt(companyPensionPlan) === 8500 && parseInt(personPensionPlan) === 1500, parseInt(taxeBase) === 6000){
-            console.log('The result is 4500');
-            res.writeHead(200, {'content-Type': 'application/json'})
-            res.end('Tu madre');
-        }
+app.post("/upload", upload.single("myFile"), (req, res) => {
+  // Interceptamos el objeto y lo pasamos por multer.
+  const file = req.file;
+  res.send({url: `${file.filename}`});
+});
 
-        if(parseInt(companyPensionPlan) === 8500 && parseInt(personPensionPlan) === 1500, parseInt(taxeBase) === 500000){
-            console.log('The result is 4700');
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            res.end('4700');
-        }
-
-    }
+app.get("/",(req,res)=>{
+  res.send("Hola 👋, si quieres obtener tus datos prueba con /api/smugglers");
 })
 
-server.use(router);
+app.use('/api',router);
+app.use('/public', express.static(urlSave));
 
-server.listen(3001,()=>{
-    console.log('JSON Server is running')
-})
+app.listen(port, () => {
+  console.log("JSON app is running in: ", port);
+});
