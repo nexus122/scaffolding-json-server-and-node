@@ -114,16 +114,6 @@
       "img": "/assets/smugglers/Cheewaca.jpg",
       "spaceship": 1,
       "planet": 1
-    },
-    {
-      "name": "R2D2",
-      "home_planet": "Tattoine",
-      "img": "http://localhost:3201/public/1659551491308.jpg",
-      "specie": "Humano",
-      "genre": "0",
-      "spaceship": "1",
-      "planet": "2",
-      "id": 4
     }
   ]
 }
